@@ -1,0 +1,196 @@
+
+body{
+    background-color: #f7f9f8
+}
+
+.image-container {
+    position: relative;
+    width: 600px; /* Ajusta el tamaño según necesites */
+    
+}
+
+.image-containerFull {
+    position: fixed;
+    width: 620px; /* Ajusta el tamaño según necesites */
+    
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-container .button {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f44336; /* Color del botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+/* Estilos comunes para todos los botones */ 
+.button { 
+    background-color: #205F9A; /* Color del botón */ 
+    color: white; 
+    border: 2px solid black; 
+    border-radius: 10px; /* Esquinas redondeadas */ 
+    padding: 7px 22px; 
+    cursor: pointer; 
+    transform: translate(-50%, -50%); 
+}
+
+/* Estilos específicos para cada botón */ 
+.button_lc1 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+.button_lc2 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+.button_lc3 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+.button_lc4 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+.button_lc5 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+.button_lc6 {
+
+    transform: translate(-50%, -50%);
+    background-color: #205F9A; /* Color del botón */
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+
+.button_led_on_off_1-3 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+
+.button_led_on_off_4 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+
+.button_led_on_off_5 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 6px 22px;
+    cursor: pointer;
+}
+
+.button_led_on_off_5_2 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 6px 22px;
+    cursor: pointer;
+}
+
+.button_led_on_off_5_3 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 6px 22px;
+    cursor: pointer;
+}
+
+.button_led_on_off_6 {
+
+    transform: translate(-50%, -50%);
+    background-color: #f0e408; /* Color del botón */
+    color: rgb(10, 6, 252);
+    border: 2px solid black;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 9px 27px;
+    cursor: pointer;
+}
+
+/* Posición para cada botón */ 
+.button_lc1 { position: absolute; top: 22px; left: 42px; } 
+.button_lc2 { position: absolute; top: 22px; left: 160px; } 
+.button_lc3 { position: absolute; top: 22px; left: 272px; }
+.button_lc4 { position: absolute; top: 22px; left: 442px; }
+
+.button_lc5 { position: absolute; top: 455px; left: 248px; }
+.button_lc6 { position: absolute; top: 455px; left: 104px; }
+
+.button_led_on_off_1-3 { position: absolute; top: 38px; left: 492px; } 
+.button_led_on_off_4 { position: absolute; top: 68px; left: 202px; }
+.button_led_on_off_5 { position: absolute; top: 98px; left: 302px; }
+.button_led_on_off_5_2 { position: absolute; top: 98px; left: 472px; }
+.button_led_on_off_5_3 { position: relative; top: -435px; left: 634px; }
+
+.button_led_on_off_6 { position: absolute; top: 38px; left: 452px; }
+
+.image-container {
+    width: 550px; /* Ajusta el tamaño según necesites */ 
+    height: 550px; /* Ajusta el tamaño según necesites */
+}.button:hover {
+    background-color: #d32f2f; /* Color del botón al pasar el ratón */
+   
+}
