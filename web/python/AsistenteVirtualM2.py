@@ -14,6 +14,7 @@ import webbrowser       #Libreria para abrir páginas web
 #import serial
 import time
 import os
+import requests  # Añade esta línea para importar requests
 # Función para enviar un comando al Arduino
 #ser=serial.Serial('COM6', 9600)
 #def enviar_comando(comando):
@@ -49,6 +50,12 @@ def decirVozAlta(escuchando):
     engine.say(escuchando)
     print(escuchando)
     engine.runAndWait()
+
+def enviar_senal_cerrar():
+    try:
+        requests.get("http://localhost/proyecto1/index.php?r=site/close-endpoint" )  # Ajusta la URL según tu configuración
+    except requests.RequestException as e:
+        print(f"Error al enviar la señal de cierre: {e}")
 
 #playsound(r"C:\Users\iran1\OneDrive\Documentos\Cerro Azul\7. Septimo Semestre\Inteligencia Artificial\TEMA 3\NetflixAudio.mp3")    
 #def cargar_recursos():
@@ -125,15 +132,12 @@ while(activo):
                             break
                              
 
-                elif "Salir" in text.title():
-                    activo=False
+                elif "Salir" in text.title() or "salir" in text.title() or "terminar" in text.title():
+                    activo = False
+                    enviar_senal_cerrar()  # Envía la señal para cerrar la ventana
                     break
-                elif "salir" in text.title():
-                    activo=False
-                    break
-                elif "terminar" in text.title():
-                    activo=False
-                    break
+
+               
         except:
             decirVozAlta('Repetir, por favor')
         x=x+1

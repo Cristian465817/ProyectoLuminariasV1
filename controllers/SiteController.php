@@ -158,7 +158,23 @@ class SiteController extends Controller
         file_put_contents($stopSignalFile, 'stop');
 
         return $this->renderContent("El asistente virtual ha sido detenido.");
+
+        
     }
+
+
+
+    public function actionCloseEndpoint()
+    {
+        // Envía un mensaje a los clientes conectados para cerrar la ventana
+        header('Content-Type: text/event-stream');
+        header('Cache-Control: no-cache');
+        echo "data: close\n\n";
+        flush();
+    }
+
+
+    
 
     /////////////////////////////////////////////////////////////////////////////////////
 
