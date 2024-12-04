@@ -139,7 +139,29 @@ class SiteController extends Controller
         // Muestra la salida del script Python
         return $this->renderContent("<pre>$output</pre>");
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////
     
+    public function actionAsistente()
+    {
+
+        $output = exec("python C:/xampp/htdocs/proyecto1/web/python/AsistenteVirtualM2.py");
+        echo $output. '--';
+    }
+
+    public function actionStopPython()
+    {
+        // Ruta al archivo de señal
+        $stopSignalFile = Yii::getAlias('@app/web/python/stop_signal.txt');
+
+        // Crear el archivo de señal
+        file_put_contents($stopSignalFile, 'stop');
+
+        return $this->renderContent("El asistente virtual ha sido detenido.");
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
 
     //Apertura del croquis del Laboratorio de Sistemas y Computación
     public function actionCroquis(){

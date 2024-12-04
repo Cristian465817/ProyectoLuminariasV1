@@ -4,6 +4,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+use app\assets\AppAsset;
+
 $this->title = 'My Yii Application';
 ?>
 <!DOCTYPE html>
@@ -21,11 +23,15 @@ $this->title = 'My Yii Application';
 
         <!-- <p><a class="btn btn-lg btn-success" href="C:\xampp\htdocs\asistente\AsistenteVirtualM2.py">Asistente Virtual</a></p> -->
 
-        <?= Html::button('ON / OFF', [
-            'class' => 'button_led_on_off_1-3',
-            'onclick' => "location.href='" . Url::to(['site/run-python']) . "';"
+        <?= Html::button('Asistente Virtual', [
+            'class' => 'button_asistente',
+            'onclick' => "location.href='" . Url::to(['site/asistente']) . "';"
         ]) ?>
 
+        <?= Html::button('Ventana', [
+            'class' => 'button_ventana',
+            'onclick' => "openAssistantWindow()"
+        ]) ?>
         
        
 
@@ -69,34 +75,34 @@ $this->title = 'My Yii Application';
     </div>
 </div>
 
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#run-python').click(function() {
-            $.ajax({
-                url: 'run_python.php',
-                method: 'GET',
-                success: function(response) {
-                    $('#output').html(response);
-                },
-                error: function() {
-                    $('#output').html('<p>Error al ejecutar el script Python.</p>');
-                }
-            });
-        });
-    });
 
-    $('#stop-python').click(function() {
-            $.ajax({
-                url: 'stop_python.php',
-                method: 'GET',
-                success: function(response) {
-                    $('#output').html(response);
-                },
-                error: function() {
-                    $('#output').html('<p>Error al detener el script Python.</p>');
-                }
-            });
+    function openAssistantWindow() {
+        // Ejecuta el asistente virtual
+        $.ajax({
+            url: '<?= Url::to(['site/run-python']) ?>',
+            method: 'GET',
+            success: function(response) {
+                console.log('Asistente virtual iniciado');
+            },
+            error: function() {
+                console.log('Error al iniciar el asistente virtual');
+            }
         });
-    });
+        // Calcula el centro de la pantalla
+        var width = 600;
+        var height = 400;
+        var left = (screen.width / 2) - (width / 2);
+        var top = (screen.height / 2) - (height / 2);
+
+        // Abre la ventana emergente centrada
+        var assistantWindow = window.open("", "Asistente Virtual", "width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
+        assistantWindow.document.write("<div class='popup-content'><h1>Asistente Virtual</h1><p>El asistente virtual está en ejecución...</p><button onclick='window.close()'>Cerrar</button></div>");
+    }
 </script>
+</body>
+</html>

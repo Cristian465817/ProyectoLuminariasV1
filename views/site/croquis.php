@@ -24,6 +24,8 @@ AppAsset::register($this);
     <?= Html::button('LC4', ['class' => 'button_lc4', 'onclick' => "location.href='" . \yii\helpers\Url::to(['site/lc4']) . "';"]) ?>
     <?= Html::button('LC5', ['class' => 'button_lc5', 'onclick' => "location.href='" . \yii\helpers\Url::to(['site/lc5']) . "';"]) ?>
     <?= Html::button('LC6', ['class' => 'button_lc6', 'onclick' => "location.href='" . \yii\helpers\Url::to(['site/lc6']) . "';"]) ?>
+
+    <?= Html::button('Asistente Virtual', ['class' => 'button_asistente','onclick' => "location.href='" . \yii\helpers\Url::to(['site/asistente']) . "';"]) ?>
     
     
 

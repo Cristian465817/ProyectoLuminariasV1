@@ -8,24 +8,34 @@ import pygame
 
 # Modificado por: Cristian, Thayly, Brandon
 
-#pip install audio-denoiser
-#noisereduce
-#python-noise-cancellation
-
 #pip install playsound
 
 import webbrowser       #Libreria para abrir páginas web    
 #import serial
 import time
-
+import os
 # Función para enviar un comando al Arduino
 #ser=serial.Serial('COM6', 9600)
 #def enviar_comando(comando):
  #   ser.write(comando.encode())
   #  time.sleep(s)
 
+# Establecer el directorio de trabajo al directorio del script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+# Guardar el PID en un archivo
+pid_file = os.path.join(script_dir, 'assistant_pid.txt')
+with open(pid_file, 'w') as f:
+    f.write(str(os.getpid()))
+
+# Archivo de señal para detener el asistente
+stop_signal_file = os.path.join(script_dir, 'stop_signal.txt')
 
 
+# Establecer el directorio de trabajo al directorio del script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 
 r = sr.Recognizer()
@@ -74,9 +84,14 @@ while(activo):
             print('Has dicho: {}'.format(text))
             #La base de conocimiento, debe de coincidir con la semántica, sintaxis correcta
             #Palabras clave seleccionadas.
-            base_de_conocimiento = open("BaseConocimientoMF.pl")
-            with base_de_conocimiento as obtener_lineas:
-                lineas_base_de_conocimiento = obtener_lineas.readlines()
+           # base_de_conocimiento = open("BaseConocimientoMF.pl")
+           # with base_de_conocimiento as obtener_lineas:
+            #    lineas_base_de_conocimiento = obtener_lineas.readlines()
+            
+            base_de_conocimiento_path = os.path.join(script_dir, "BaseConocimientoMF.pl")
+            with open(base_de_conocimiento_path, 'r') as base_de_conocimiento:
+                lineas_base_de_conocimiento = base_de_conocimiento.readlines()
+
             for linea in lineas_base_de_conocimiento:
                 #print(linea.rstrip())
                 
@@ -127,3 +142,9 @@ decirVozAlta(texto)
 
 # Cierra el puerto serial
 #ser.close()
+
+# Eliminar el archivo PID y el archivo de señal al finalizar
+if os.path.exists(pid_file):
+    os.remove(pid_file)
+if os.path.exists(stop_signal_file):
+    os.remove(stop_signal_file)
